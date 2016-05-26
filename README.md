@@ -1,0 +1,2 @@
+# RTRASSIGN1
+Aim: This assignment is intended to introduce students to graphics performance, measurement, benchmarking and optimisation, primarily through the use of vertex buffer objects (VBOs) and associated APIs. SDL is to be used for the UI and event handling instead of GLUT, although not for performance reasons. Method: In order to achieve a consistent benchmark, default settings to compare frame rate and frame time were needed. The following options were used;
