@@ -1,0 +1,162 @@
+
+#include <iostream>
+
+#include "Vector3D.hpp"
+
+// Accessors
+
+int Vector3D::getX() const
+{
+	return x_;
+}
+
+int Vector3D::getY() const
+{
+	return y_;
+}
+
+int Vector3D::getZ() const
+{
+	return z_;
+}
+
+// Mutators
+
+void Vector3D::setX(int x)
+{
+	x_ = x;
+}
+
+void Vector3D::setY(int y)
+{
+	y_ = y;
+}
+
+void Vector3D::setZ(int z)
+{
+	z_ = z;
+}
+
+//Constructor
+
+Vector3D::Vector3D()
+{
+	x_ = 0;
+	y_ = 0;
+	z_ = 0;
+}
+
+Vector3D::Vector3D(int x, int y, int z)
+{
+	x_ = x;
+	y_ = y;
+	z_ = z;
+}
+
+
+//Print value
+
+void Vector3D::getVector3Dprint()
+{
+	std::cout << "x: " << x_ << " y: " << y_ << " z: " << z_ << std::endl;
+
+}
+
+
+
+
+
+#if 0
+void printUsageAndQuit();
+void testSmartPointer(shared_ptr<int> p);
+void testNonSmartPOinter(int* p);
+void output(const std::string& msg, int* pInt);
+void outputArray(int* pInt, int size);
+void outputArrayVector(const vector<int> & myvector);
+
+int main()
+{
+	SineWave3D s(2);
+	s.printDebug();
+	s.cleanUp();
+	return 0;
+}
+
+
+void printUsageAndQuit() {
+
+	cout << "HelloWorld" << endl;
+}
+
+void testSmartPointer(shared_ptr<int> p)
+{
+	cout << p.get() << endl;
+}
+
+void testNonSmartPOinter(int* p)
+{
+	cout << *p << endl;
+}
+
+void output(const std::string& msg, int* pInt)
+{
+    std::cout << msg << *pInt << "\n";
+}
+
+void outputArray(int* pInt, int size)
+{
+	for(int i = 0; i < size; i++)
+	{
+		cout << "Index: " << i << " Value: " <<pInt[i] << endl;
+	}
+}
+
+void outputArrayVector(const vector<int> & myvector)
+{
+	for(int i = 0; i < 5; i++)
+	{
+		cout << "Index: " << i << " Value: " << myvector[i] << endl;
+	}
+}
+
+	const float colorLightSet[9][4] = {
+									1.0f, 1.0f, 1.0f, 1.0f, //white Light maybe try this at the end since it might be overriding the colo
+									1.0f, 0.0f, 0.0f, 1.0f, //red Light
+									0.0f, 1.0f, 0.0f, 1.0f, //green Light
+									0.0f, 1.0f, 0.0f, 1.0f, //blue light
+									0.5f, 0.5f, 0.0f, 1.0f, //yellow Light
+									0.5f, 0.0f, 0.5f, 1.0f, //purple Light
+									0.0f, 0.5f, 0.5f, 1.0f,	// teal Light	
+									1.0f, 1.0f, 1.0f, 1.0f,
+									1.0f, 1.0f, 1.0f, 1.0f					
+								};
+
+    const float redLighDiffuse[] = {1.0f, 0.0f, 0.0f, 1.0f};
+    const float greenLighDiffuse[] = {0.0f, 1.0f, 0.0f, 1.0f};
+	const float blueLightDiffuse[] ={0.0f, 1.0f, 0.0f, 1.0f};
+	const float yellowLightDiffuse[] = {0.5f, 0.5f, 0.0f, 1.0f};
+	const float	purpleLightDiffuse[] = {0.5f, 0.0f, 0.5f, 1.0f};
+	const float tealLightDiffuse[] = {0.0f, 0.5f, 0.5f, 1.0f};
+	
+	
+	//Hardcode for testing Array vertex
+void drawGridVA(Grid g)
+{
+	int cols = g.cols - 1;
+	int rows = g.rows - 1;
+	//glVertexPointer(3, GL_FLOAT, sizeof(Vertex), structVert);
+	glVertexPointer(3, GL_FLOAT, sizeof(Point3f), g.vertices);
+	for (int i = 0; i < cols; i++)
+	{
+		int indexa = i * (rows + 1) * 2;
+		//cout << "Draw index with VA : " << indexa << endl; 
+		glDrawElements(GL_TRIANGLE_STRIP, (rows + 1) * 2, GL_UNSIGNED_INT, &g.indices[indexa]);
+	}
+		
+		#if 0
+		for (int i = 0; i < cols; i++)
+			glDrawElements(GL_TRIANGLE_STRIP, (rows + 1) * 2, GL_UNSIGNED_INT, &g.indices[i * (rows + 1) * 2]);
+		
+		#endif
+}
+#endif
